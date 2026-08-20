@@ -1,51 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class NavigationShell extends StatefulWidget {
-  const NavigationShell({super.key});
+class NavigationShell extends StatelessWidget {
+  final StatefulNavigationShell navigationShell;
 
-  @override
-  State<NavigationShell> createState() => _NavigationShellState();
-}
-
-class _NavigationShellState extends State<NavigationShell> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _pages = const [
-    _PlaceholderPage(title: 'Home', icon: Icons.home),
-    _PlaceholderPage(title: 'Search', icon: Icons.search),
-    _PlaceholderPage(title: 'Notifications', icon: Icons.notifications),
-    _PlaceholderPage(title: 'Profile', icon: Icons.person),
-  ];
+  const NavigationShell({
+    super.key,
+    required this.navigationShell,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
+      body: navigationShell,
       bottomNavigationBar: NavigationBar(
-        selectedIndex: _selectedIndex,
+        selectedIndex: navigationShell.currentIndex,
         onDestinationSelected: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          navigationShell.goBranch(
+            index,
+            initialLocation: index == navigationShell.currentIndex,
+          );
         },
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.shield_outlined),
+            selectedIcon: Icon(Icons.shield),
+            label: 'Shift',
           ),
           NavigationDestination(
-            icon: Icon(Icons.search_outlined),
-            selectedIcon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.location_on_outlined),
+            selectedIcon: Icon(Icons.location_on),
+            label: 'Check-In',
           ),
           NavigationDestination(
-            icon: Icon(Icons.notifications_outlined),
-            selectedIcon: Icon(Icons.notifications),
-            label: 'Notifications',
+            icon: Icon(Icons.warning_amber_outlined),
+            selectedIcon: Icon(Icons.warning),
+            label: 'Incidents',
           ),
           NavigationDestination(
             icon: Icon(Icons.person_outline),
@@ -58,11 +48,12 @@ class _NavigationShellState extends State<NavigationShell> {
   }
 }
 
-class _PlaceholderPage extends StatelessWidget {
+class PlaceholderPage extends StatelessWidget {
   final String title;
   final IconData icon;
 
-  const _PlaceholderPage({
+  const PlaceholderPage({
+    super.key,
     required this.title,
     required this.icon,
   });

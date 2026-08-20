@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cipher_x/app/app.dart';
 import 'package:cipher_x/app/theme/app_theme.dart';
 import 'package:cipher_x/core/config/app_config.dart';
-import 'package:cipher_x/core/constants/app_constants.dart';
 import 'package:cipher_x/core/services/firebase_service.dart';
 import 'package:cipher_x/core/widgets/app_error_view.dart';
 import 'package:cipher_x/core/widgets/app_loading.dart';
@@ -25,8 +24,8 @@ void main() {
       // Let the navigation delay complete
       await tester.pumpAndSettle();
 
-      // Should now be on the Home tab of NavigationShell
-      expect(find.text('Placeholder for Home'), findsOneWidget);
+      // Should now be on the Shift tab of NavigationShell
+      expect(find.text('Placeholder for Shift'), findsOneWidget);
     });
 
     test(

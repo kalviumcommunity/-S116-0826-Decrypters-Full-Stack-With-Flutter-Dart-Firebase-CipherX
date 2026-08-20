@@ -19,10 +19,11 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _navigateToHome() async {
-    // Temporary initialization delay
+    // TODO(Auth): Replace this temporary delay with Firebase Auth initialization readiness.
+    // This allows PR #9 to easily hook into authStateProvider here.
     await Future.delayed(const Duration(seconds: 2));
     if (mounted) {
-      context.go(AppRoutes.home);
+      context.go(AppRoutes.shift);
     }
   }
 
