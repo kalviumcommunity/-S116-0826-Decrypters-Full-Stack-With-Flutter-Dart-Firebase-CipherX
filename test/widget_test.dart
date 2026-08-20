@@ -11,17 +11,22 @@ import 'package:cipher_x/core/widgets/app_loading.dart';
 
 void main() {
   group('Cipher-X Bootstrap & Firebase Foundation Tests', () {
-    testWidgets('Root CipherXApp renders BootstrapScreen title & shield icon',
+    testWidgets('Root CipherXApp navigates to NavigationShell and renders Home',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         const ProviderScope(
           child: CipherXApp(),
         ),
       );
+      
+      // Initially, splash screen elements should be visible
+      expect(find.byIcon(Icons.shield_outlined), findsOneWidget);
+      
+      // Let the navigation delay complete
       await tester.pumpAndSettle();
 
-      expect(find.text(AppConstants.appName), findsWidgets);
-      expect(find.byIcon(Icons.shield_outlined), findsOneWidget);
+      // Should now be on the Home tab of NavigationShell
+      expect(find.text('Placeholder for Home'), findsOneWidget);
     });
 
     test(
