@@ -1,7 +1,5 @@
 <div align="center">
 
-<br/><br/>
-
 <h1>Cipher-X</h1>
 
 <p><strong>A startup-quality, real-time security workforce and operations management platform — multi-factor attendance verification, live site coverage, incident reporting with evidence, and an immutable audit trail. Built in 10 days on a zero-rupee infrastructure budget.</strong></p>
