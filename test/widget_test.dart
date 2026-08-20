@@ -1,0 +1,87 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cipher_x/app/app.dart';
+import 'package:cipher_x/app/theme/app_theme.dart';
+import 'package:cipher_x/core/config/app_config.dart';
+import 'package:cipher_x/core/constants/app_constants.dart';
+import 'package:cipher_x/core/widgets/app_error_view.dart';
+import 'package:cipher_x/core/widgets/app_loading.dart';
+
+void main() {
+  group('Cipher-X Bootstrap & Theme Tests', () {
+    testWidgets('Root CipherXApp renders BootstrapScreen title & shield icon',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        const ProviderScope(
+          child: CipherXApp(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text(AppConstants.appName), findsWidgets);
+      expect(find.byIcon(Icons.shield_outlined), findsOneWidget);
+    });
+
+    test(
+        'AppTheme light and dark modes configure correct brightness & Material 3',
+        () {
+      final ThemeData light = AppTheme.lightTheme;
+      final ThemeData dark = AppTheme.darkTheme;
+
+      expect(light.useMaterial3, isTrue);
+      expect(light.brightness, equals(Brightness.light));
+
+      expect(dark.useMaterial3, isTrue);
+      expect(dark.brightness, equals(Brightness.dark));
+    });
+
+    test('AppConfig resolves environment dynamically', () {
+      final AppConfig defaultDevConfig = AppConfig.fromEnvironment();
+      expect(defaultDevConfig.environment, equals(AppEnvironment.development));
+      expect(defaultDevConfig.enableLogging, isTrue);
+    });
+
+    testWidgets('AppLoading renders spinner and message cleanly',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: AppLoading(message: 'Initializing Cipher-X Security...'),
+          ),
+        ),
+      );
+
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.text('Initializing Cipher-X Security...'), findsOneWidget);
+    });
+
+    testWidgets(
+        'AppErrorView renders error title, description & handles retry action',
+        (WidgetTester tester) async {
+      bool retried = false;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: AppErrorView(
+              title: 'Connection Lost',
+              message: 'Failed to connect to security gateway.',
+              onRetry: () {
+                retried = true;
+              },
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('Connection Lost'), findsOneWidget);
+      expect(
+          find.text('Failed to connect to security gateway.'), findsOneWidget);
+      expect(find.byType(ElevatedButton), findsOneWidget);
+
+      await tester.tap(find.byType(ElevatedButton));
+      expect(retried, isTrue);
+    });
+  });
+}
