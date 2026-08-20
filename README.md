@@ -174,17 +174,13 @@ Cipher-X is engineered to run **100% on Free-Tier Infrastructure (₹0 Cost)**:
    flutter pub get
    ```
 
-3. **Start Firebase Emulator Suite** (For zero-cost local testing):
+3. **Run Static Analysis & Unit Tests**:
    ```bash
-   firebase emulators:start --only auth,firestore,storage
+   flutter analyze
+   flutter test
    ```
 
-4. **Run Code Generation** (Freezed / JSON Serializable):
-   ```bash
-   dart run build_runner build --delete-conflicting-outputs
-   ```
-
-5. **Launch the Application**:
+4. **Launch the Application**:
    ```bash
    flutter run -d chrome # or attached mobile device
    ```
