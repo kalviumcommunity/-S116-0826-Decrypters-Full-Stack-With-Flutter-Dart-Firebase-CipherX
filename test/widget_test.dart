@@ -4,24 +4,28 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cipher_x/app/app.dart';
 import 'package:cipher_x/app/theme/app_theme.dart';
 import 'package:cipher_x/core/config/app_config.dart';
-import 'package:cipher_x/core/constants/app_constants.dart';
 import 'package:cipher_x/core/services/firebase_service.dart';
 import 'package:cipher_x/core/widgets/app_error_view.dart';
 import 'package:cipher_x/core/widgets/app_loading.dart';
 
 void main() {
   group('Cipher-X Bootstrap & Firebase Foundation Tests', () {
-    testWidgets('Root CipherXApp renders BootstrapScreen title & shield icon',
+    testWidgets('Root CipherXApp navigates to NavigationShell and renders Home',
         (WidgetTester tester) async {
       await tester.pumpWidget(
         const ProviderScope(
           child: CipherXApp(),
         ),
       );
+      
+      // Initially, splash screen elements should be visible
+      expect(find.byIcon(Icons.shield_outlined), findsOneWidget);
+      
+      // Let the navigation delay complete
       await tester.pumpAndSettle();
 
-      expect(find.text(AppConstants.appName), findsWidgets);
-      expect(find.byIcon(Icons.shield_outlined), findsOneWidget);
+      // Should now be on the Shift tab of NavigationShell
+      expect(find.text('Placeholder for Shift'), findsOneWidget);
     });
 
     test(
