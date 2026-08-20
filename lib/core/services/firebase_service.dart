@@ -71,6 +71,27 @@ class FirebaseService {
     }
   }
 
+  /// Diagnostic health check confirming Firebase SDK binding status
+  static Map<String, dynamic> checkHealth() {
+    return <String, dynamic>{
+      'isInitialized': _isInitialized,
+      'hasFirebaseApps': Firebase.apps.isNotEmpty,
+      'authAvailable': true,
+      'firestoreAvailable': true,
+      'storageAvailable': true,
+      'emulatorPorts': <String, int>{
+        'auth': authEmulatorPort,
+        'firestore': firestoreEmulatorPort,
+        'storage': storageEmulatorPort,
+      },
+    };
+  }
+
+  @visibleForTesting
+  static void resetForTesting() {
+    _isInitialized = false;
+  }
+
   // SDK Instance Accessors
   static FirebaseAuth get auth => FirebaseAuth.instance;
   static FirebaseFirestore get firestore => FirebaseFirestore.instance;

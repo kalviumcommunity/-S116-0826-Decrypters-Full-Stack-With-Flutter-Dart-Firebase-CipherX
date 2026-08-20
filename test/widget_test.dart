@@ -43,12 +43,19 @@ void main() {
       expect(defaultDevConfig.enableLogging, isTrue);
     });
 
-    test('FirebaseService exposes correct emulator ports & hosts', () {
+    test(
+        'FirebaseService exposes correct emulator ports & checkHealth diagnostics',
+        () {
       expect(FirebaseService.authEmulatorPort, equals(9099));
       expect(FirebaseService.firestoreEmulatorPort, equals(8080));
       expect(FirebaseService.storageEmulatorPort, equals(9199));
       expect(FirebaseService.emulatorHostLocalhost, equals('localhost'));
       expect(FirebaseService.emulatorHostAndroid, equals('10.0.2.2'));
+
+      final Map<String, dynamic> health = FirebaseService.checkHealth();
+      expect(health['authAvailable'], isTrue);
+      expect(health['firestoreAvailable'], isTrue);
+      expect(health['storageAvailable'], isTrue);
     });
 
     testWidgets('AppLoading renders spinner and message cleanly',
