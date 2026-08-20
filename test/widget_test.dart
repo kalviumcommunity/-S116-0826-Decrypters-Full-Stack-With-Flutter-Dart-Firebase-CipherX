@@ -5,11 +5,12 @@ import 'package:cipher_x/app/app.dart';
 import 'package:cipher_x/app/theme/app_theme.dart';
 import 'package:cipher_x/core/config/app_config.dart';
 import 'package:cipher_x/core/constants/app_constants.dart';
+import 'package:cipher_x/core/services/firebase_service.dart';
 import 'package:cipher_x/core/widgets/app_error_view.dart';
 import 'package:cipher_x/core/widgets/app_loading.dart';
 
 void main() {
-  group('Cipher-X Bootstrap & Theme Tests', () {
+  group('Cipher-X Bootstrap & Firebase Foundation Tests', () {
     testWidgets('Root CipherXApp renders BootstrapScreen title & shield icon',
         (WidgetTester tester) async {
       await tester.pumpWidget(
@@ -40,6 +41,14 @@ void main() {
       final AppConfig defaultDevConfig = AppConfig.fromEnvironment();
       expect(defaultDevConfig.environment, equals(AppEnvironment.development));
       expect(defaultDevConfig.enableLogging, isTrue);
+    });
+
+    test('FirebaseService exposes correct emulator ports & hosts', () {
+      expect(FirebaseService.authEmulatorPort, equals(9099));
+      expect(FirebaseService.firestoreEmulatorPort, equals(8080));
+      expect(FirebaseService.storageEmulatorPort, equals(9199));
+      expect(FirebaseService.emulatorHostLocalhost, equals('localhost'));
+      expect(FirebaseService.emulatorHostAndroid, equals('10.0.2.2'));
     });
 
     testWidgets('AppLoading renders spinner and message cleanly',
