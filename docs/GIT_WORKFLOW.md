@@ -1,6 +1,6 @@
-# CipherX — Git Workflow & Branch Strategy Specification 🔀
+# Cipher-X — Git Workflow & Branch Strategy Specification 🔀
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. Branch Topology & Strategy
 
-CipherX enforces a strict trunk-based git workflow using short-lived feature branches and a single protected production branch (`main`).
+Cipher-X enforces a strict trunk-based git workflow using short-lived feature branches and a single protected production branch (`main`).
 
 ```text
        feature/hardik-auth-rbac
@@ -81,7 +81,7 @@ dart run build_runner build --delete-conflicting-outputs
 ```
 
 ### Step 2: Open Pull Request
-Use the standard CipherX PR Template:
+Use the standard Cipher-X PR Template:
 
 ```markdown
 ## Description

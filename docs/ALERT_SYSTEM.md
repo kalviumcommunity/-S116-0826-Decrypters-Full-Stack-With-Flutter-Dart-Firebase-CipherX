@@ -1,6 +1,6 @@
-# CipherX — Alert System & Free-Tier Automation Architecture 🚨
+# Cipher-X — Alert System & Free-Tier Automation Architecture 🚨
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. Alert Types & Operational Triggers
 
-CipherX categorizes alerts into four primary operational trigger classes:
+Cipher-X categorizes alerts into four primary operational trigger classes:
 
 | Alert Trigger | Conditions | Severity Level | Target Recipient | Action Required |
 | :--- | :--- | :--- | :--- | :--- |
@@ -21,7 +21,7 @@ CipherX categorizes alerts into four primary operational trigger classes:
 
 ## 2. Free-Tier Automation Architecture (Zero-Paid Cloud Functions)
 
-Firebase Cloud Functions require the paid **Blaze Plan**. To adhere strictly to our **₹0 budget constraint**, CipherX decouples alert evaluation from paid backend cloud functions using a **Clean Abstract Automation Interface Pattern**.
+Firebase Cloud Functions require the paid **Blaze Plan**. To adhere strictly to our **₹0 budget constraint**, Cipher-X decouples alert evaluation from paid backend cloud functions using a **Clean Abstract Automation Interface Pattern**.
 
 ### Architecture Blueprint:
 
@@ -79,7 +79,7 @@ abstract class AlertAutomationService {
 
 ## 4. Passive Evaluation Algorithm
 
-When an Admin or Supervisor opens the CipherX Operations Dashboard, the client triggers a background scan of overdue shifts:
+When an Admin or Supervisor opens the Cipher-X Operations Dashboard, the client triggers a background scan of overdue shifts:
 
 ```dart
 class PassiveAlertEvaluator implements AlertAutomationService {
@@ -136,7 +136,7 @@ class PassiveAlertEvaluator implements AlertAutomationService {
 For automated execution without user interaction, a zero-cost **GitHub Actions Scheduled Workflow** runs every 15 minutes, calling a lightweight script using the Firebase Admin SDK:
 
 ```yaml
-name: CipherX Free Alert Cron
+name: Cipher-X Free Alert Cron
 on:
   schedule:
     - cron: '*/15 * * * *'

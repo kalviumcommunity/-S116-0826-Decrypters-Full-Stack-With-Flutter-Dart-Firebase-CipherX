@@ -1,6 +1,6 @@
-# CipherX — Product Requirements Document (PRD) 📋
+# Cipher-X — Product Requirements Document (PRD) 📋
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0 (MVP Specification)  
 
@@ -16,13 +16,13 @@ Private security service providers operate under a fundamental operational trust
 3. **Delayed & Unverified Incident Reporting**: When incidents occur, reports are submitted hours later via informal text messages lacking exact geolocation, server timestamps, or verified photo evidence.
 4. **Lack of Auditability**: Security agencies cannot produce immutable attendance or incident compliance reports during client contract audits or liability claims.
 
-**CipherX** transforms security management from a passive, paper-based routine into a **verified, real-time security workforce platform**.
+**Cipher-X** transforms security management from a passive, paper-based routine into a **verified, real-time security workforce platform**.
 
 ---
 
 ## 2. Core Operational Loop
 
-CipherX strictly enforces an 10-stage closed operational loop across every guard shift:
+Cipher-X strictly enforces an 10-stage closed operational loop across every guard shift:
 
 ```text
   ┌──────────┐      ┌──────────┐      ┌──────────┐      ┌──────────┐      ┌───────────┐

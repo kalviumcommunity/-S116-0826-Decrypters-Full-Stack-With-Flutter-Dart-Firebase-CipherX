@@ -1,6 +1,6 @@
-# CipherX — Incident Workflow & Evidence Pipeline Specification ⚠️
+# Cipher-X — Incident Workflow & Evidence Pipeline Specification ⚠️
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 

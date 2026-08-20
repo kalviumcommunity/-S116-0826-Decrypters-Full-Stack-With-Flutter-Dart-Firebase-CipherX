@@ -1,6 +1,6 @@
-# CipherX — Firestore Data Schema & Query Index Specification 🗄️
+# Cipher-X — Firestore Data Schema & Query Index Specification 🗄️
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. Multi-Tenant Architecture & Data Principles
 
-CipherX uses a top-level collections model with mandatory **tenant isolation** via `organizationId`. Every operational document must contain `organizationId` to ensure zero cross-tenant data leakage.
+Cipher-X uses a top-level collections model with mandatory **tenant isolation** via `organizationId`. Every operational document must contain `organizationId` to ensure zero cross-tenant data leakage.
 
 ### Core Data Principles:
 - **Server Timestamps**: All creation and modification timestamps use `FieldValue.serverTimestamp()` to prevent client clock tampering.

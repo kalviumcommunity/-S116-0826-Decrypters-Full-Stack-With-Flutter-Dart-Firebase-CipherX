@@ -1,8 +1,8 @@
-# CipherX — 15-Day Sprint & Implementation Plan 📅
+# Cipher-X — 10-Day Development Plan 📅
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
-> **Sprint Duration**: 15 Days (3 Parallel Workstreams)  
+> **Sprint Duration**: 10 Days (~40 PR Target)  
 > **Document Version**: 1.0.0  
 
 ---
@@ -11,125 +11,83 @@
 
 ```text
                ┌─────────────────────────────────────────────────────────┐
-               │                     DAY 1 - DAY 15                      │
+               │                     DAY 1 - DAY 10                      │
                └────┬───────────────────────┬───────────────────────┬────┘
                     │                       │                       │
                     ▼                       ▼                       ▼
          ┌───────────────────┐   ┌───────────────────┐   ┌───────────────────┐
          │      HARDIK       │   │       GAURI       │   │      AVADHUT      │
-         │ (Lead / Backend / │   │ (Guard Experience │   │ (Admin / Ops /    │
-         │  Rules / Engine)  │   │  & Mobile App)    │   │  Dashboard UI)    │
+         │ (Tech Lead / Core │   │ (Guard Mobile App │   │ (Admin Operations │
+         │ Architecture/Rules)│   │  & Guard UX)      │   │  & Dashboard UI)  │
          └───────────────────┘   └───────────────────┘   └───────────────────┘
 ```
 
----
+### Team Member Ownership Matrix:
 
-## 2. Day-by-Day Implementation Roadmap
-
-### Phase 1: Foundation & Setup (Days 1–3)
-
-#### **Day 1: Project Initialization & Architectural Foundation**
-- **Hardik**: Configure Flutter 3.19 project with feature-first folder structure, Riverpod state scaffolding, GoRouter router initialization, and Firebase Emulator setup.
-- **Gauri**: Create core Guard application UI components (glassmorphism card, status pills, custom app bar).
-- **Avadhut**: Create core Admin application UI layout (sidebar, top navigation bar, metric card widgets).
-- **Deliverable**: Bootable Flutter project connected to local Firebase Emulators.
-
-#### **Day 2: Firebase Auth & Multi-Tenant Setup**
-- **Hardik**: Implement Firebase Auth repository, custom claims parser, User domain entity, and AuthRiverpodNotifier. Write initial `users` Firestore security rules.
-- **Gauri**: Build Guard Login Screen, error snackbars, and session loading states.
-- **Avadhut**: Build Admin Login Screen and Tenant Setup Modal.
-- **Deliverable**: Working authentication pipeline for Admin and Guard user accounts.
-
-#### **Day 3: Navigation Guards & Role-Based Routing**
-- **Hardik**: Implement GoRouter redirect guard pipeline (`appRouteRedirectGuard`) protecting `/admin/*`, `/supervisor/*`, and `/guard/*` routes.
-- **Gauri**: Build Guard Home Shell layout (`/guard/today-shift`).
-- **Avadhut**: Build Admin Shell layout (`/admin/dashboard`).
-- **Deliverable**: Role-protected application shell.
+- **Hardik**: Architecture, Firebase, Auth, RBAC, Core domain, Firestore, Attendance engine, Geofence engine, Security rules, Alert architecture, Integration, Code review, Release.
+- **Gauri**: Guard app, Guard dashboard, Shift UI, GPS, QR, Check-in, Check-out, Incident reporting, Evidence upload, Guard UX.
+- **Avadhut**: Admin dashboard, Guard management, Site management, Shift management UI, Coverage dashboard, Incident management, Alert UI, QA support, Demo data.
 
 ---
 
-### Phase 2: Core Domain & Management Features (Days 4–7)
+## 2. 10-Day Implementation Roadmap
 
-#### **Day 4: Site & Geofence Management**
-- **Hardik**: Write Firestore Security Rules for `sites/` collection and build `SiteRepository`.
-- **Gauri**: Implement Site Location Map Preview component for guard shift details.
-- **Avadhut**: Build Site Management UI (`CreateSiteModal`, `SiteListScreen`, Geofence radius slider).
-- **Deliverable**: Full CRUD capabilities for geofenced client sites.
+### **Day 1: Phase 0 + Foundation**
+- **Hardik**: Finalize Phase 0 documentation contract (PRs #1–#4). Initialize Flutter codebase with feature-first folder structure, Riverpod providers, GoRouter initialization, and Firebase Emulator configuration.
+- **Gauri**: Build base Guard UI design system tokens, themes, app bar, status pills, and empty state widgets.
+- **Avadhut**: Build base Admin Dashboard shell, navigation sidebar, top header, and summary card widgets.
+- **Deliverable**: Phase 0 locked contract and bootable Flutter foundation connected to Firebase Emulators.
 
-#### **Day 5: Guard Management & User Administration**
-- **Hardik**: Implement Admin User Management repository and soft-delete user logic.
-- **Gauri**: Build Guard Profile & Emergency Contact Screen.
-- **Avadhut**: Build Guard Roster Management UI (`CreateGuardModal`, Guard list table, activation toggle).
-- **Deliverable**: Admin interface to create and manage security guard profiles.
+### **Day 2: Authentication + RBAC**
+- **Hardik**: Implement Firebase Auth repository, custom claims parser, User domain entity, and `AuthRiverpodNotifier`. Write `users/` collection Security Rules and GoRouter redirect guards.
+- **Gauri**: Build Guard Login Screen, error handling snackbars, and authentication state listeners.
+- **Avadhut**: Build Admin Login Screen, Organization Tenant Setup UI, and user session controls.
+- **Deliverable**: Full multi-tenant authentication pipeline with role-based routing (`admin`, `supervisor`, `guard`).
 
-#### **Day 6: Shift Scheduling Engine (Part 1)**
-- **Hardik**: Create `ShiftModel`, `ShiftRepository`, shift date/time range query methods, and shift conflict validation math.
-- **Gauri**: Build Guard "Today's Shift" card widget displaying site address, shift timing, and supervisor phone link.
-- **Avadhut**: Build Shift Calendar Roster UI for Admin/Supervisor (`ShiftSchedulerScreen`).
-- **Deliverable**: Ability to schedule shifts and view assigned shifts on guard app.
+### **Day 3: Guards + Sites**
+- **Hardik**: Implement `SiteRepository` and Guard User Management services. Write `sites/` collection Security Rules with tenant isolation.
+- **Gauri**: Build Guard Profile Screen, emergency contact UI, and site location map view.
+- **Avadhut**: Build Site Management UI (`CreateSiteModal`, site list, geofence radius slider) and Guard Roster Management UI.
+- **Deliverable**: Full CRUD operations for security guards and geofenced client sites.
 
-#### **Day 7: Shift Scheduling Engine (Part 2)**
-- **Hardik**: Implement multi-guard shift assignment logic and prevent double-booking shifts.
-- **Gauri**: Build Guard Upcoming Shifts list view with date filtering.
-- **Avadhut**: Build Shift Assignment Modal with guard selection dropdown and site mapping.
-- **Deliverable**: Full operational shift assignment pipeline.
+### **Day 4: Shift Management**
+- **Hardik**: Implement `ShiftModel`, `ShiftRepository`, shift date/time range query methods, shift conflict validation logic, and write `shifts/` Security Rules.
+- **Gauri**: Build Guard "Today's Shift" card widget displaying site address, shift timing, and supervisor contact link.
+- **Avadhut**: Build Admin Shift Scheduler UI (`ShiftCalendarView`, shift creation modal, guard assignment dropdown).
+- **Deliverable**: Complete shift scheduling pipeline preventing double-booking.
 
----
+### **Day 5: GPS + Geofence**
+- **Hardik**: Implement `GeofenceCalculator` (Haversine formula), GPS accuracy filtering, mock location detection, and location permission handler.
+- **Gauri**: Build Guard GPS status indicator and site proximity feedback widget.
+- **Avadhut**: Add geofence coverage preview map to Site Management admin UI.
+- **Deliverable**: Validated GPS location and Haversine distance engine.
 
-### Phase 3: Verification & Attendance Engine (Days 8–10)
-
-#### **Day 8: Geofence Math & QR Code Integration**
-- **Hardik**: Build `GeofenceCalculator` (Haversine formula), GPS accuracy filtering, and mock location detector.
-- **Gauri**: Integrate `mobile_scanner` library and build native QR Code Scanner Widget for site check-in.
-- **Avadhut**: Build Site QR Code Generator modal in Admin UI (downloads printable site QR plaques).
-- **Deliverable**: Functioning QR code scanner and Haversine distance calculator.
-
-#### **Day 9: Attendance Verification Engine Assembly**
+### **Day 6: QR + Attendance**
 - **Hardik**: Assemble `VerificationEngine` combining Auth + Shift Window + Haversine Distance + Site QR matching. Write `attendance/` Security Rules.
-- **Gauri**: Build Guard Check-In & Check-Out Screen (`CheckInScreen`) with live GPS status indicator and verification steps.
-- **Avadhut**: Build Live Attendance Feed widget in Admin Dashboard.
-- **Deliverable**: Complete end-to-end verified check-in pipeline.
+- **Gauri**: Integrate `mobile_scanner` and build native QR Code Scanner Widget & Check-In/Out UI.
+- **Avadhut**: Build Site QR Code Generator (download printable site QR plaques) and live attendance feed.
+- **Deliverable**: Quad-lock verified attendance check-in & check-out pipeline.
 
-#### **Day 10: Attendance History & Exceptions**
-- **Hardik**: Build attendance repository query filters and aggregate daily check-in logs.
-- **Gauri**: Build Guard Attendance History Screen with date range picker.
-- **Avadhut**: Build Admin Attendance Log Table with status filtering (`verified`, `flagged`, `missed`).
-- **Deliverable**: Attendance history and exception tracking.
+### **Day 7: Incidents + Alerts**
+- **Hardik**: Build `IncidentRepository`, image compression pipeline (`flutter_image_compress`), Firebase Storage evidence uploader, passive alert evaluator, and write `incidents/` Security Rules.
+- **Gauri**: Build Incident Submission Screen with camera photo capture, severity picker, and description fields. Add FCM alert receiver.
+- **Avadhut**: Build Incident Management Screen, photo evidence modal, incident status resolver, and Real-Time Alerts Panel.
+- **Deliverable**: Photo-evidenced incident workflow and real-time alert system.
 
----
+### **Day 8: Command Center**
+- **Hardik**: Build `AuditLoggerService`, write append-only `auditLogs/` Security Rules, and aggregate `dashboardStats` document writes.
+- **Gauri**: Build Guard Attendance History Screen with date filtering and personal audit logs.
+- **Avadhut**: Assemble main Command Center Operations Dashboard (total guards, active on duty, absent/late metrics, site coverage percentage, critical alert feed).
+- **Deliverable**: Live Command Center Dashboard and immutable audit trail.
 
-### Phase 4: Incidents, Alerts & Audit Trail (Days 11–13)
+### **Day 9: Security + QA**
+- **Hardik**: Perform security penetration audit against Firestore Security Rules (test cross-tenant access, unauthorized writes, clock tampering).
+- **Gauri**: Conduct edge-case testing for Guard app (no internet/offline cache, weak GPS signal, camera permission denied, invalid QR).
+- **Avadhut**: Perform stress testing on Admin Dashboard with 50+ simulated shifts and multi-site filters. Create demo seed dataset.
+- **Deliverable**: Hardened application passing all security tests and edge cases.
 
-#### **Day 11: Incident Reporting & Evidence Pipeline**
-- **Hardik**: Build `IncidentRepository`, image compression pipeline (`flutter_image_compress`), and Firebase Storage upload handler. Write `incidents/` Security Rules.
-- **Gauri**: Build Create Incident Screen (`CreateIncidentScreen`) with camera photo capture, severity selector, and description fields.
-- **Avadhut**: Build Incident Management Screen (`IncidentListScreen`, severity badge filters).
-- **Deliverable**: Photo-evidenced incident creation pipeline.
-
-#### **Day 12: Incident Resolution & Alert Engine**
-- **Hardik**: Build `AlertAutomationService` interface, passive alert evaluator for overdue shifts, and FCM push notification payload handler.
-- **Gauri**: Add FCM push alert receiver and in-app alert banner to Guard app.
-- **Avadhut**: Build Incident Resolution Modal (add supervisor notes) and Real-Time Alerts Panel.
-- **Deliverable**: Working alert detection and incident resolution workflow.
-
-#### **Day 13: Operations Dashboard & Immutable Audit Log**
-- **Hardik**: Build `AuditLoggerService`, write `auditLogs/` append-only Security Rules, and aggregate `dashboardStats` document writes.
-- **Gauri**: Add audit log viewer to Guard profile (displays personal check-in audit history).
-- **Avadhut**: Assemble main Operations Dashboard (`MetricsOverviewWidget`, live coverage percentage, understaffed site alerts, audit log viewer).
-- **Deliverable**: Fully functioning operations dashboard and audit trail.
-
----
-
-### Phase 5: Testing, Hardening & Final Review (Days 14–15)
-
-#### **Day 14: Security Auditing & Edge Case Testing**
-- **Hardik**: Conduct penetration testing against Firestore Security Rules (attempt cross-tenant access, unauthorized writes, clock tampering).
-- **Gauri**: Test Guard app under offline mode, weak GPS signal, camera permission denied, and invalid QR codes.
-- **Avadhut**: Test Admin Dashboard with 50+ simulated shifts, multi-site filtering, and heavy data stress test.
-- **Deliverable**: Verified security rules and edge-case resilient application.
-
-#### **Day 15: Final Demo Preparation & Polish**
-- **Hardik**: Final code refactoring, complete documentation review, build production APK/Web bundles.
-- **Gauri**: UI polish, micro-animations, loading shimmers, and error snackbar styling.
-- **Avadhut**: Dashboard chart styling, report export styling, and final presentation demo walkthrough.
-- **Deliverable**: Production-ready **CipherX MVP** release.
+### **Day 10: Production + Release**
+- **Hardik**: Conduct final code review, verify zero paid dependencies, assemble production release artifacts (Android APK & Web build).
+- **Gauri**: Perform UI polish, micro-animations, loading shimmers, and error state verification.
+- **Avadhut**: Verify operational walkthrough, dashboard analytics styling, and final demo readiness.
+- **Deliverable**: Production-ready **Cipher-X MVP** release.

@@ -1,6 +1,6 @@
-# CipherX — Attendance Verification Engine Specification 📍
+# Cipher-X — Attendance Verification Engine Specification 📍
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. Multi-Factor Verification Quad-Lock Architecture
 
-To eliminate attendance fraud, CipherX rejects single-button sign-ins (`checkIn = true`). Instead, attendance check-in executes a mandatory **4-Factor Verification Sequence**:
+To eliminate attendance fraud, Cipher-X rejects single-button sign-ins (`checkIn = true`). Instead, attendance check-in executes a mandatory **4-Factor Verification Sequence**:
 
 ```mermaid
 flowchart TD
@@ -33,7 +33,7 @@ flowchart TD
 
 ## 2. Mathematical Foundation: Haversine Geofencing Formula
 
-To determine if a guard's physical coordinates fall within the site's configured geofence radius without external GIS paid APIs, CipherX executes on-device **Haversine Distance Calculation**:
+To determine if a guard's physical coordinates fall within the site's configured geofence radius without external GIS paid APIs, Cipher-X executes on-device **Haversine Distance Calculation**:
 
 $$\Delta\phi = \text{lat}_2 - \text{lat}_1, \quad \Delta\lambda = \text{lon}_2 - \text{lon}_1$$
 
@@ -75,7 +75,7 @@ class GeofenceCalculator {
 
 ## 3. GPS Accuracy Threshold & Quality Filtering
 
-Low-quality GPS fixes or mock location tools can report fake coordinates. CipherX filters coordinates using accuracy tolerances:
+Low-quality GPS fixes or mock location tools can report fake coordinates. Cipher-X filters coordinates using accuracy tolerances:
 
 1. **Accuracy Threshold**: If `position.accuracy > 35.0` meters, the coordinate is rejected as unreliable. The UI prompts the user: *"Improving GPS accuracy... Please step into an open area."*
 2. **Mock Location Detection**: On Android devices, `position.isMocked` is evaluated via `geolocator`. If `isMocked == true`, check-in is instantly aborted and flagged as a security violation in `auditLogs`.
@@ -96,14 +96,14 @@ bool isValidLocationFix(Position position) {
 
 ## 4. Dynamic Site QR Token Verification
 
-Each client site document contains an immutable `qrToken` (e.g. `CIPHERX_SITE_99381_HASH`). Physical QR code plaques are posted at site guard stations.
+Each client site document contains an immutable `qrToken` (e.g. `CIPHER_X_SITE_99381_HASH`). Physical QR code plaques are posted at site guard stations.
 
 ### Scan Verification Payload:
 When Gauri's QR Scanner component scans the plaque, the verification payload is checked:
 ```json
 {
   "siteId": "site_techpark_01",
-  "qrToken": "CIPHERX_SITE_99381_HASH",
+  "qrToken": "CIPHER_X_SITE_99381_HASH",
   "orgId": "org_decrypters_001"
 }
 ```

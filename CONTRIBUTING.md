@@ -1,6 +1,6 @@
-# Contributing Guidelines for CipherX 🛡️
+# Contributing Guidelines for Cipher-X 🛡️
 
-Thank you for contributing to **CipherX**, developed by **Team Decrypters**. To maintain high engineering standards, zero-cost compatibility, and rapid 10–15 day delivery, all contributors must strictly adhere to these guidelines.
+Thank you for contributing to **Cipher-X**, developed by **Team Decrypters**. To maintain high engineering standards, zero-cost compatibility, and rapid 10-day delivery, all contributors must strictly adhere to these guidelines.
 
 ---
 
@@ -113,4 +113,4 @@ Keep code organized under `lib/features/<feature_name>/` containing `data/`, `do
    dart format .
    ```
 
-Thank you for building **CipherX** with excellence!
+Thank you for building **Cipher-X** with excellence!

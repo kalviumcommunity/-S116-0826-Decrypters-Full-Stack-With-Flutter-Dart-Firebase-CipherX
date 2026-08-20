@@ -1,6 +1,6 @@
-# CipherX — Audit Logging Architecture Specification 📝
+# Cipher-X — Audit Logging Architecture Specification 📝
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 

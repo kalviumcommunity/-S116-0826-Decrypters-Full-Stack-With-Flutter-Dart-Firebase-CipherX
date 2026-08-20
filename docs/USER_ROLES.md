@@ -1,6 +1,6 @@
-# CipherX — User Roles & Role-Based Access Control (RBAC) 👥
+# Cipher-X — User Roles & Role-Based Access Control (RBAC) 👥
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. Role Definitions & Hierarchy
 
-CipherX supports three explicit user roles. Access control is strictly enforced at both the **UI Route Guard Layer** (GoRouter) and the **Database Security Layer** (Firestore Security Rules).
+Cipher-X supports three explicit user roles. Access control is strictly enforced at both the **UI Route Guard Layer** (GoRouter) and the **Database Security Layer** (Firestore Security Rules).
 
 ```text
                ┌───────────────────────────┐

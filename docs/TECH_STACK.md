@@ -1,6 +1,6 @@
-# CipherX — Tech Stack & Free-Tier Budget Specifications 🛠️
+# Cipher-X — Tech Stack & Free-Tier Budget Specifications 🛠️
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. Non-Negotiable Budget & Tech Constraints
 
-CipherX is strictly engineered for **₹0 development budget, ₹0 hosting budget, and ₹0 paid backend dependencies**.
+Cipher-X is strictly engineered for **₹0 development budget, ₹0 hosting budget, and ₹0 paid backend dependencies**.
 
 ### Non-Negotiable Stack Rules:
 - ❌ **NO Paid Cloud Functions**: Mandatory Cloud Functions (which require the paid Firebase Blaze plan) are prohibited.
@@ -39,13 +39,13 @@ CipherX is strictly engineered for **₹0 development budget, ₹0 hosting budge
 
 ## 3. Firebase Free Tier (Spark Plan) Budget Allocation
 
-CipherX operates well within the generous monthly free allowances provided by Firebase:
+Cipher-X operates well within the generous monthly free allowances provided by Firebase:
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        FIREBASE FREE SPARK LIMITS                      │
 ├───────────────────────┬──────────────────────┬─────────────────────────┤
-│ Resource              │ Spark Plan Allowance │ Estimated CipherX Usage │
+│ Resource              │ Spark Plan Allowance │ Estimated Cipher-X Usage │
 ├───────────────────────┼──────────────────────┼─────────────────────────┤
 │ Firestore Reads       │ 50,000 / day         │ ~5,000 / day            │
 │ Firestore Writes      │ 20,000 / day         │ ~1,200 / day            │
@@ -61,13 +61,13 @@ CipherX operates well within the generous monthly free allowances provided by Fi
 
 ## 4. Free-Tier Replacement Strategy for Cloud Functions
 
-Commercial platforms often rely on scheduled Cloud Functions for cron triggers (e.g. marking shifts as `missed` if check-in hasn't occurred 30 minutes after start time). To maintain ₹0 cost, CipherX employs a **Passive Automation Architecture**:
+Commercial platforms often rely on scheduled Cloud Functions for cron triggers (e.g. marking shifts as `missed` if check-in hasn't occurred 30 minutes after start time). To maintain ₹0 cost, Cipher-X employs a **Passive Automation Architecture**:
 
 ### Free-Tier Automation Matrix:
 
 ```text
 ┌─────────────────────────┬───────────────────────────────┬──────────────────────────────────────────┐
-│ Feature                 │ Standard Paid Solution        │ CipherX Free-Tier Solution               │
+│ Feature                 │ Standard Paid Solution        │ Cipher-X Free-Tier Solution              │
 ├─────────────────────────┼───────────────────────────────┼──────────────────────────────────────────┤
 │ Missed Shift Detection  │ Cloud Scheduler + Cloud Func  │ Client-Side Evaluator on Admin Dashboard │
 │                         │                               │ + Free GitHub Actions Scheduled Workflow │

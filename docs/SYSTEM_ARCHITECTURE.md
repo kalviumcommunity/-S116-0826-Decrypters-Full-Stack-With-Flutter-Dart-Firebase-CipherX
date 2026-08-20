@@ -1,6 +1,6 @@
-# CipherX — System Architecture & Technical Design 🏗️
+# Cipher-X — System Architecture & Technical Design 🏗️
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,7 +8,7 @@
 
 ## 1. High-Level System Architecture
 
-CipherX is designed as a **serverless, event-driven multi-tenant mobile/web application** leveraging Flutter for cross-platform clients and Firebase for core backend services under a strict **₹0 budget constraint**.
+Cipher-X is designed as a **serverless, event-driven multi-tenant mobile/web application** leveraging Flutter for cross-platform clients and Firebase for core backend services under a strict **₹0 budget constraint**.
 
 ```mermaid
 flowchart TD
@@ -135,7 +135,7 @@ Each feature module enforces strict unidirectional dependency flow:
 
 ## 4. Riverpod State Management Architecture
 
-Riverpod manages all reactive state across CipherX. We strictly standardize on `AsyncNotifierProvider` for robust async handling (loading, data, error).
+Riverpod manages all reactive state across Cipher-X. We strictly standardize on `AsyncNotifierProvider` for robust async handling (loading, data, error).
 
 ### Example Notifier Pattern:
 ```dart
@@ -196,7 +196,7 @@ flowchart TD
 
 ## 6. Offline Resilience & Edge Case Handling
 
-Since security guards often operate in basements or remote industrial sites with spotty cellular coverage, CipherX implements an offline-aware strategy:
+Since security guards often operate in basements or remote industrial sites with spotty cellular coverage, Cipher-X implements an offline-aware strategy:
 
 1. **Firestore Local Persistence**: Firestore offline caching is enabled (`persistenceEnabled: true`), allowing guards to read assigned shift details even without internet connection.
 2. **Transient Failure UI States**: Every repository call maps errors to standardized `Failure` domain objects:

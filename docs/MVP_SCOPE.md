@@ -1,6 +1,6 @@
-# CipherX — MVP Scope Control & Feature Boundaries 🎯
+# Cipher-X — MVP Scope Control & Feature Boundaries 🎯
 
-> **Application Name**: CipherX  
+> **Application Name**: Cipher-X  
 > **Founding Team**: Team Decrypters (Hardik, Gauri, Avadhut)  
 > **Document Version**: 1.0.0  
 
@@ -8,13 +8,13 @@
 
 ## 1. Scope Control Philosophy
 
-To deliver a production-grade security operations platform within a **10–15 day sprint** under a **₹0 budget**, scope boundaries must be strictly enforced.
+To deliver a production-grade security operations platform within a **10-day sprint** under a **₹0 budget**, scope boundaries must be strictly enforced.
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
-│                          CIPHERX SCOPE MATRIX                          │
+│                         CIPHER-X SCOPE MATRIX                          │
 ├──────────────────────────┬───────────────────────┬─────────────────────┤
-│ MUST HAVE (15-Day MVP)   │ SHOULD HAVE (Post-MVP)│ FUTURE (V2 Release) │
+│ MUST HAVE (10-Day MVP)   │ SHOULD HAVE (Post-MVP)│ FUTURE (V2 Release) │
 ├──────────────────────────┼───────────────────────┼─────────────────────┤
 │ Auth & RBAC              │ CSV / PDF Export      │ AI Guard Face ID    │
 │ Multi-Tenant Org Model   │ Advanced Filters      │ AI Incident Classify│
@@ -33,7 +33,7 @@ To deliver a production-grade security operations platform within a **10–15 da
 ## 2. Granular Scope Specifications
 
 ### 2.1 MUST HAVE (Non-Negotiable MVP Scope)
-Every item in this list MUST be fully implemented, tested, and integrated by Day 15:
+Every item in this list MUST be fully implemented, tested, and integrated by Day 10:
 
 1. **Authentication & Roles**: Firebase Auth login/logout, session persistence, role detection (`admin`, `supervisor`, `guard`), route protection.
 2. **Organization Tenant Model**: Complete data isolation using `organizationId`.
@@ -54,7 +54,7 @@ Every item in this list MUST be fully implemented, tested, and integrated by Day
 ---
 
 ### 2.2 SHOULD HAVE (Phase 2 - Post-MVP Enhancements)
-Features to be added immediately after the 15-day sprint once MUST HAVE functionality is stable:
+Features to be added immediately after the 10-day sprint once MUST HAVE functionality is stable:
 
 1. **Export Operations Reports**: Generate PDF/CSV attendance and incident reports for client billing.
 2. **Advanced Filtering**: Filter shift calendar by guard name, site location, or shift status.
@@ -66,7 +66,7 @@ Features to be added immediately after the 15-day sprint once MUST HAVE function
 
 ### 2.3 FUTURE (V2 & Enterprise Vision — Out of Scope for MVP)
 > [!CAUTION]
-> **Strict Prohibition**: Developers must NOT spend time implementing any FUTURE feature during the 15-day MVP sprint.
+> **Strict Prohibition**: Developers must NOT spend time implementing any FUTURE feature during the 10-day MVP sprint.
 
 1. **AI Face Verification**: Facial recognition during check-in (requires paid ML API infrastructure).
 2. **AI Automated Incident Classification**: Natural language processing on incident descriptions.
