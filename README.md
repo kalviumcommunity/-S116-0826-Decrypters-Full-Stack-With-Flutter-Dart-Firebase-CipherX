@@ -701,8 +701,8 @@ Guard creates incident report               -> ALLOW
 
 | Requirement | Version | Notes |
 |---|---|---|
-| Flutter SDK | 3.19.0+ | [flutter.dev/get-started](https://docs.flutter.dev/get-started/install) |
-| Dart SDK | 3.3.0+ | Bundled with Flutter |
+| Flutter SDK | 3.41.0+ | [flutter.dev/get-started](https://docs.flutter.dev/get-started/install) |
+| Dart SDK | 3.11.0+ | Bundled with Flutter |
 | Firebase CLI | Latest | `npm install -g firebase-tools` |
 | VS Code or Android Studio | Latest | With Flutter and Dart plugins |
 | Java | 17+ | Required for Android build |
