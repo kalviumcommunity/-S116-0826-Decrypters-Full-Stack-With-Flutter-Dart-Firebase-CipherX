@@ -101,6 +101,7 @@ void main() {
       expect(find.byType(ElevatedButton), findsOneWidget);
 
       await tester.tap(find.byType(ElevatedButton));
+      await tester.pump();
       expect(retried, isTrue);
     });
   });
