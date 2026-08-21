@@ -28,7 +28,7 @@ abstract class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: AppColors.surfaceLight,
         elevation: 1,
         shape: RoundedRectangleBorder(
@@ -76,7 +76,7 @@ abstract class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: CardTheme(
         color: AppColors.surfaceDark,
         elevation: 1,
         shape: RoundedRectangleBorder(

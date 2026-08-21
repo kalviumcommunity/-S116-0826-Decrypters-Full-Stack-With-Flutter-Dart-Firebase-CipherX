@@ -73,7 +73,7 @@ class PlaceholderPage extends StatelessWidget {
             Icon(
               icon,
               size: 64,
-              color: theme.colorScheme.primary.withValues(alpha: 0.5),
+              color: theme.colorScheme.primary.withOpacity(0.5),
             ),
             const SizedBox(height: 16),
             Text(
@@ -84,7 +84,7 @@ class PlaceholderPage extends StatelessWidget {
             Text(
               'Placeholder for $title',
               style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                color: theme.colorScheme.onSurface.withOpacity(0.7),
               ),
             ),
           ],
