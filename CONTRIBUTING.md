@@ -133,7 +133,7 @@ Cipher-X uses **GitHub Actions** for automated Continuous Integration (CI).
 ### CI Rules & Triggers
 - **Triggers**: CI automatically runs on every Pull Request targeting `main` and on direct pushes to `main`.
 - **Validation Steps**:
-  1. Sets up reproducible Flutter `3.19.x` environment on `ubuntu-latest`.
+  1. Sets up reproducible Flutter `3.27.x` environment on `ubuntu-latest`.
   2. Installs dependencies (`flutter pub get`).
   3. Verifies Dart code formatting (`dart format`).
   4. Runs static analysis (`flutter analyze`).
