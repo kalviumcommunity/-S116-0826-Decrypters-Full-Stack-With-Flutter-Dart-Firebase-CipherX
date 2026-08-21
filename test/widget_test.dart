@@ -17,10 +17,10 @@ void main() {
           child: CipherXApp(),
         ),
       );
-      
+
       // Initially, splash screen elements should be visible
       expect(find.byIcon(Icons.shield_outlined), findsOneWidget);
-      
+
       // Let the navigation delay complete
       await tester.pumpAndSettle();
 
@@ -98,9 +98,10 @@ void main() {
       expect(find.text('Connection Lost'), findsOneWidget);
       expect(
           find.text('Failed to connect to security gateway.'), findsOneWidget);
-      expect(find.byType(ElevatedButton), findsOneWidget);
+      expect(find.text('Try Again'), findsOneWidget);
 
-      await tester.tap(find.byType(ElevatedButton));
+      await tester.tap(find.text('Try Again'));
+      await tester.pumpAndSettle();
       expect(retried, isTrue);
     });
   });

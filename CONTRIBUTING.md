@@ -98,19 +98,50 @@ Keep code organized under `lib/features/<feature_name>/` containing `data/`, `do
 
 ---
 
-## 🧪 Local Testing Workflow
+## 🧪 Local Testing Workflow & Quality Checks
 
-1. Start Firebase Emulators:
+### Local Quality Checks
+Before committing code or opening a Pull Request, run the following verification commands locally:
+
+1. **Dependency Installation**:
    ```bash
-   firebase emulators:start --only auth,firestore,storage
+   flutter pub get
    ```
-2. Run unit and widget tests:
+2. **Formatting Verification**:
+   ```bash
+   dart format --output=none --set-exit-if-changed .
+   ```
+3. **Static Analysis**:
+   ```bash
+   flutter analyze
+   ```
+4. **Unit & Widget Tests**:
    ```bash
    flutter test
    ```
-3. Format code:
+5. **Android Debug Build**:
    ```bash
-   dart format .
+   flutter build apk --debug
    ```
 
+---
+
+## ⚙️ Continuous Integration
+
+Cipher-X uses **GitHub Actions** for automated Continuous Integration (CI).
+
+### CI Rules & Triggers
+- **Triggers**: CI automatically runs on every Pull Request targeting `main` and on direct pushes to `main`.
+- **Validation Steps**:
+  1. Sets up reproducible Flutter `3.41.x` environment on `ubuntu-latest`.
+  2. Installs dependencies (`flutter pub get`).
+  3. Verifies Dart code formatting (`dart format`).
+  4. Runs static analysis (`flutter analyze`).
+  5. Executes automated unit/widget test suite (`flutter test`).
+  6. Verifies Android compilation (`flutter build apk --debug`).
+- **Merge Requirements**: All CI checks must pass before a Pull Request can be merged. Any failed check must be resolved locally by the developer before re-requesting review.
+
+---
+
 Thank you for building **Cipher-X** with excellence!
+

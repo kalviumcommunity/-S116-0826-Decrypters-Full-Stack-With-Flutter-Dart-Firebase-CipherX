@@ -22,7 +22,7 @@ Cipher-X is strictly engineered for **₹0 development budget, ₹0 hosting budg
 
 | Category | Chosen Technology | Exact Version / Package | Rationale |
 | :--- | :--- | :--- | :--- |
-| **Framework** | Flutter | `3.19.x` (Dart `3.3.x`) | Single cross-platform codebase targets Android/iOS (Guard Mobile) & Web (Admin Dashboard). |
+| **Framework** | Flutter | `3.41.x` (Dart `3.11.x`) | Single cross-platform codebase targets Android/iOS (Guard Mobile) & Web (Admin Dashboard). |
 | **State Management** | Flutter Riverpod | `flutter_riverpod: ^2.5.1` | Compile-time safety, seamless async state handling, zero static context dependencies. |
 | **Routing** | GoRouter | `go_router: ^13.2.0` | Declarative, URL-driven routing with built-in redirection guards for RBAC protection. |
 | **Data Immutability** | Freezed + Codegen | `freezed: ^2.4.7`<br>`json_serializable: ^6.7.1` | Generates immutable domain models, value equality, and JSON serialization. |
